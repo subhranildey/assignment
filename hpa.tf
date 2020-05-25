@@ -5,8 +5,8 @@ resource "kubernetes_horizontal_pod_autoscaler" "hpa" {
   }
 
   spec {
-    min_replicas = 2
-    max_replicas = 5
+    min_replicas = 7
+    max_replicas = 10
 
     scale_target_ref {
       api_version = "apps/v1"
