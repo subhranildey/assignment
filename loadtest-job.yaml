@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: loadtest
+spec:
+  template:
+    spec:
+      containers:
+      - name: siege
+        image: subhranildey/k8s:loadtest
+        command: ["siege",  "--concurrent=100", "--benchmark", "--time=7m", "http://assignment:3000"]
+      restartPolicy: Never
+  backoffLimit: 4
